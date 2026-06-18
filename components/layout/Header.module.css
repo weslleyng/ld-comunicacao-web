@@ -1,0 +1,40 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(251, 249, 244, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo img {
+  height: 34px;
+  width: auto;
+}
+
+/* Header CTA override (was `.topbar .btn`). Compound selector keeps higher
+   specificity than the global `.btn` regardless of stylesheet order. */
+.topbar .cta {
+  padding: 11px 22px;
+  font-size: 14.5px;
+}
+
+@media (max-width: 600px) {
+  /* Icon-only on mobile, but kept as a full 48x48 touch target
+     (min-height comes from the global .btn rule). */
+  .topbar .cta {
+    padding: 0 16px;
+    min-width: 48px;
+    justify-content: center;
+  }
+  .topbar .cta span {
+    display: none;
+  }
+}

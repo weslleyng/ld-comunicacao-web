@@ -1,0 +1,48 @@
+.final {
+  background: var(--blue);
+  text-align: center;
+  padding: 130px 0;
+  position: relative;
+  overflow: hidden;
+}
+.final::before {
+  content: "";
+  position: absolute;
+  right: -120px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 560px;
+  height: 560px;
+  background: url("/ld-icone.png") no-repeat center / contain;
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.final h2 {
+  color: var(--white);
+  max-width: 18ch;
+  margin: 0 auto 38px;
+}
+
+.final :global(.kicker) {
+  color: #f0be6d;
+  justify-content: center;
+}
+.final :global(.kicker)::before,
+.final :global(.kicker)::after {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: #f0be6d;
+}
+
+.final :global(.btn-note) {
+  justify-content: center;
+  color: #d5e3ff;
+}
+
+@media (max-width: 600px) {
+  .final {
+    padding: 88px 0;
+  }
+}

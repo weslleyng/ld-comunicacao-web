@@ -1,0 +1,22 @@
+.bar {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    display: block;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(251, 249, 244, 0.92);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line);
+  }
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

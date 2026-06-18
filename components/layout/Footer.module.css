@@ -1,0 +1,40 @@
+.footer {
+  background: var(--blue-deep);
+  color: #aec8f4;
+  padding: 56px 0;
+  font-size: 14px;
+}
+
+.inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer img {
+  height: 40px;
+  width: auto;
+}
+
+.footer a {
+  color: #d5e3ff;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.addr {
+  width: 100%;
+  font-size: 13px;
+  /* Lightened from #7f9bc4 to clear WCAG AA (>=4.5:1) on the dark footer. */
+  color: #9db5da;
+}

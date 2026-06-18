@@ -1,0 +1,276 @@
+/* ============================================================
+   LD Comunicação — Landing Page
+   Design system: Editorial Authority
+   Global tokens, reset, base typography and buttons.
+   Section-specific rules live in CSS Modules.
+   ============================================================ */
+
+:root {
+  --gold: #b68a3e;
+  --gold-deep: #7d570d;
+  --gold-tint: #f3e9d8;
+  --blue: #1f3a5f;
+  --blue-deep: #16293f;
+  --bg: #fbf9f4;
+  --ink: #1a1a1a;
+  --ink-soft: #4f4538;
+  --line: #e5e0d6;
+  --white: #ffffff;
+  --radius: 4px;
+  --container: 1200px;
+  --shadow-sm: 0 1px 2px rgba(22, 41, 63, 0.06), 0 2px 8px rgba(22, 41, 63, 0.05);
+  --shadow-md: 0 18px 40px -20px rgba(22, 41, 63, 0.28),
+    0 6px 16px rgba(22, 41, 63, 0.08);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Bridge next/font CSS variables into the original token names so no
+     migrated selector needs to change. The *-next vars are injected on <html>. */
+  --font-display: var(--font-display-next), Georgia, serif;
+  --font-body: var(--font-body-next), -apple-system, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+section {
+  padding: 110px 0;
+}
+
+/* ---------- Type ---------- */
+
+.kicker {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.kicker::before {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+}
+.kicker--center {
+  justify-content: center;
+}
+.kicker--center::after {
+  content: "";
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+/* Fluid type: scales smoothly between mobile and desktop instead of
+   jumping at breakpoints. Bounds match the original fixed sizes. */
+h1 {
+  font-size: clamp(2.125rem, 1.15rem + 4.3vw, 3.625rem); /* 34 → 58px */
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: clamp(1.75rem, 1.2rem + 2.45vw, 2.625rem); /* 28 → 42px */
+  line-height: 1.18;
+  font-weight: 700;
+}
+h3 {
+  font-size: clamp(1.3125rem, 1.24rem + 0.33vw, 1.4375rem); /* 21 → 23px */
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.lead {
+  font-size: clamp(1.0625rem, 1rem + 0.35vw, 1.1875rem); /* 17 → 19px */
+  line-height: 1.65;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radius);
+  padding: 16px 34px;
+  min-height: 48px; /* guarantees a >=44px touch target */
+  transition: background 0.2s ease, transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
+  cursor: pointer;
+}
+.btn svg {
+  flex: none;
+}
+
+.btn--primary {
+  background: var(--blue);
+  color: var(--white);
+}
+.btn--primary:hover {
+  background: var(--blue-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--gold {
+  background: var(--gold);
+  color: var(--white);
+}
+.btn--gold:hover {
+  background: var(--gold-deep);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-note {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-note::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex: none;
+}
+
+/* ---------- Focus, motion & accessibility ---------- */
+
+/* Visible keyboard focus. Gold reads clearly on both the cream page and the
+   dark blue sections; the offset keeps the ring on the surrounding surface. */
+:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Skip link: hidden until focused, then anchors to the top-left. */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -120px;
+  z-index: 100;
+  background: var(--blue);
+  color: var(--white);
+  padding: 12px 18px;
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Scroll-reveal base. JS toggles `.is-visible` when the element enters view. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- Responsive (global tokens) ---------- */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+  }
+  section {
+    padding: 72px 0;
+  }
+  /* Reserve space so the fixed mobile WhatsApp bar never covers the footer. */
+  body {
+    padding-bottom: calc(74px + env(safe-area-inset-bottom));
+  }
+}

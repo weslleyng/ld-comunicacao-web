@@ -1,0 +1,87 @@
+.hero {
+  padding: 96px 0 110px;
+  position: relative;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.hero h1 {
+  margin-bottom: 26px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-deep);
+}
+.hero :global(.lead) {
+  margin-bottom: 38px;
+  max-width: 56ch;
+}
+
+.media {
+  position: relative;
+}
+.media::before {
+  content: "";
+  position: absolute;
+  inset: 22px -22px -22px 22px;
+  border: 1px solid var(--gold);
+  z-index: 0;
+}
+
+.photo {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+}
+.photo img {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* Subtle editorial vignette anchors the photo to the layout. */
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 41, 63, 0) 55%,
+    rgba(22, 41, 63, 0.3) 100%
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+  /* Full-width single column: cap the height so the portrait doesn't dominate. */
+  .photo {
+    aspect-ratio: auto;
+    height: clamp(320px, 52vw, 460px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 56px 0 72px;
+  }
+  .media::before {
+    inset: 14px -14px -14px 14px;
+  }
+}

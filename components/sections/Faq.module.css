@@ -1,0 +1,79 @@
+.faq {
+  padding-top: 0;
+}
+
+.inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.inner h2 {
+  text-align: center;
+}
+
+.list {
+  margin-top: 48px;
+  border-top: 1px solid var(--line);
+}
+.list details {
+  border-bottom: 1px solid var(--line);
+}
+.list summary {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  padding: 24px 44px 24px 0;
+  cursor: pointer;
+  list-style: none;
+  position: relative;
+  transition: color 0.2s ease;
+}
+.list summary:hover {
+  color: var(--gold-deep);
+}
+.list details[open] summary {
+  color: var(--gold-deep);
+}
+.list summary::-webkit-details-marker {
+  display: none;
+}
+.list summary::after {
+  content: "+";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--gold-deep);
+  transition: transform 0.2s ease;
+}
+.list details[open] summary::after {
+  content: "–";
+}
+.list details p {
+  padding: 0 0 26px;
+  color: var(--ink-soft);
+  max-width: 64ch;
+  text-wrap: pretty;
+}
+/* Gentle fade-in on open; disabled under prefers-reduced-motion (globals). */
+.list details[open] p {
+  animation: faqReveal 0.32s var(--ease-out) both;
+}
+@keyframes faqReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .list summary {
+    font-size: 18px;
+  }
+}
