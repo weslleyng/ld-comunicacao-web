@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Playfair_Display, Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileCtaBar from "@/components/layout/MobileCtaBar";
+import TweakSwitcher from "@/components/ui/TweakSwitcher";
 import {
   SITE_URL,
   SITE_NAME,
@@ -10,6 +12,7 @@ import {
   SITE_DESCRIPTION,
   jsonLd,
 } from "@/lib/site";
+import { PREVIEW_KEY, TWEAK_KEY } from "@/lib/tweaks";
 import "./globals.css";
 
 // Self-hosted fonts exposed as CSS variables, bridged in globals.css to the
@@ -29,6 +32,9 @@ const inter = Inter({
   variable: "--font-body-next",
 });
 
+// Google Analytics 4 measurement ID.
+const GA_MEASUREMENT_ID = "G-LP6DY7NX0T";
+
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
@@ -36,7 +42,28 @@ export const metadata: Metadata = {
     template: "%s | LD Comunicação",
   },
   description: SITE_DESCRIPTION,
-  robots: { index: true, follow: true },
+  applicationName: SITE_NAME,
+  authors: [{ name: "Luana Dávila", url: SITE_URL }],
+  creator: "Luana Dávila",
+  publisher: SITE_NAME,
+  category: "Assessoria de Imprensa",
+  keywords: [
+    "assessoria de imprensa",
+    "assessoria de imprensa Manaus",
+    "assessoria de imprensa estratégica",
+    "relações com a imprensa",
+    "media training",
+    "gestão de crise",
+    "autoridade na mídia",
+    "LD Comunicação",
+    "Luana Dávila",
+  ],
+  formatDetection: { email: false, address: false, telephone: false },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -44,16 +71,24 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     title: SITE_TITLE,
     description:
-      "Sua expertise merece estar na mídia que constrói autoridade. 12 anos transformando competência técnica em presença na imprensa.",
-    url: "/",
-    images: [{ url: "/og-image.png" }],
+      "Sua expertise merece estar na imprensa que constrói autoridade. 14 anos transformando competência técnica em presença na imprensa.",
+    url: `${SITE_URL}/`,
+    images: [
+      {
+        url: `${SITE_URL}/og-image.png`,
+        width: 1200,
+        height: 630,
+        alt: "LD Comunicação — Assessoria de Imprensa Estratégica",
+        type: "image/png",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: SITE_TITLE,
     description:
-      "Sua expertise merece estar na mídia que constrói autoridade. 12 anos de experiência.",
-    images: ["/og-image.png"],
+      "Sua expertise merece estar na imprensa que constrói autoridade. 14 anos de experiência.",
+    images: [`${SITE_URL}/og-image.png`],
   },
 };
 
@@ -61,12 +96,42 @@ export const viewport: Viewport = {
   themeColor: "#FBF9F4",
 };
 
+// Preview-mode bootstrap: runs before the page paints so the chosen Tweak is
+// applied without a flash. Preview is enabled in dev or when the URL carries
+// ?preview=1 (persisted in localStorage); ?preview=0 turns it off. A visitor
+// without the flag gets no attributes, so the published site always renders the
+// base theme (Editorial Premium).
+const isDev = process.env.NODE_ENV !== "production";
+const previewBootstrap = `(function(){try{var d=document.documentElement,ls=window.localStorage,P=${JSON.stringify(
+  PREVIEW_KEY
+)},T=${JSON.stringify(
+  TWEAK_KEY
+)},q=new URLSearchParams(location.search);if(q.has("preview")){var v=q.get("preview");if(v==="0"||v==="false"){ls.removeItem(P);}else{ls.setItem(P,"1");}}var on=${isDev}||ls.getItem(P)==="1";if(on){d.setAttribute("data-preview","1");var t=ls.getItem(T)||"";if(t){d.setAttribute("data-tweak",t);}else{d.removeAttribute("data-tweak");}}else{d.removeAttribute("data-preview");d.removeAttribute("data-tweak");}}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="pt-BR"
+      className={`${playfair.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
       <body>
+        {/* Google Analytics 4 — loaded after hydration so it never blocks render. */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+        <script dangerouslySetInnerHTML={{ __html: previewBootstrap }} />
         <a href="#main" className="skip-link">
           Pular para o conteúdo
         </a>
@@ -74,6 +139,7 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <MobileCtaBar />
+        <TweakSwitcher />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -20,7 +20,7 @@ const steps = [
 
 export default function Solution() {
   return (
-    <section className={styles.solution} aria-label="O método">
+    <section id="metodo" className={styles.solution} aria-label="O método">
       <div className="container">
         <div className={styles.head}>
           <p className="kicker">O método</p>

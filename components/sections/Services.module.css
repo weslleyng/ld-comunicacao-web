@@ -1,0 +1,33 @@
+.services {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 56px;
+  margin-top: 48px;
+  list-style: none;
+}
+.list li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  font-size: 16.5px;
+  color: var(--ink-soft);
+}
+.list svg {
+  margin-top: 3px;
+}
+
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
+}

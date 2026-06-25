@@ -23,14 +23,14 @@ export default function Problem() {
           <p className="kicker">O problema</p>
           <h2>Competência sozinha não vira reputação</h2>
           <p className={styles.cost}>
-            Cada mês sem presença na mídia é mais um mês deixando que o mercado
+            Cada mês sem presença na imprensa é mais um mês deixando que o mercado
             defina sua reputação por você — e escolhendo o concorrente mais
             visível, não o mais competente.
           </p>
         </div>
         <div className={styles.list}>
           {items.map((item) => (
-            <div key={item.num} className={styles.item}>
+            <div key={item.num} className={`${styles.item} cascade-item`}>
               <span className={styles.num}>{item.num}</span>
               <p>{item.text}</p>
             </div>

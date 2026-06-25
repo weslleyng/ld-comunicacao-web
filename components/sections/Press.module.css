@@ -1,6 +1,40 @@
 .press {
-  background: var(--blue);
-  padding: 56px 0;
+  background: var(--section-accent);
+  padding: 80px 0;
+}
+
+.title {
+  text-align: center;
+  color: var(--white);
+  max-width: 24ch;
+  margin: 0 auto;
+}
+
+.bullets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 48px;
+  max-width: 760px;
+  margin: 36px auto 0;
+  list-style: none;
+}
+.bullets li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--on-dark);
+  text-wrap: pretty;
+}
+.bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  background: var(--on-dark-accent);
+  border-radius: 50%;
 }
 
 .label {
@@ -8,9 +42,9 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #aec8f4;
+  color: var(--on-dark);
   text-align: center;
-  margin-bottom: 30px;
+  margin: 48px 0 28px;
 }
 
 .logos {
@@ -18,33 +52,23 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: baseline;
-  gap: 18px 64px;
+  gap: 16px 44px;
 }
 .logos span {
   font-family: var(--font-display);
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 600;
   color: var(--white);
   white-space: nowrap;
 }
-.logos small {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: #aec8f4;
-  text-align: center;
-  margin-top: 4px;
-}
 
 .stat {
   text-align: center;
-  margin-top: 36px;
+  margin-top: 40px;
   padding-top: 28px;
-  border-top: 1px solid rgba(174, 200, 244, 0.25);
+  border-top: 1px solid var(--on-dark-line);
   font-size: 14.5px;
-  color: #d5e3ff;
+  color: var(--on-dark-strong);
 }
 .stat strong {
   color: var(--white);
@@ -52,8 +76,12 @@
 }
 
 @media (max-width: 600px) {
+  .bullets {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
   .logos {
-    gap: 16px 36px;
+    gap: 14px 30px;
   }
   .logos span {
     font-size: 18px;

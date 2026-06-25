@@ -1,6 +1,6 @@
 .footer {
-  background: var(--blue-deep);
-  color: #aec8f4;
+  background: var(--footer-bg);
+  color: var(--on-dark);
   padding: 56px 0;
   font-size: 14px;
 }
@@ -19,7 +19,7 @@
 }
 
 .footer a {
-  color: #d5e3ff;
+  color: var(--on-dark-strong);
   text-decoration: none;
 }
 .footer a:hover {
@@ -36,5 +36,5 @@
   width: 100%;
   font-size: 13px;
   /* Lightened from #7f9bc4 to clear WCAG AA (>=4.5:1) on the dark footer. */
-  color: #9db5da;
+  color: var(--on-dark-muted);
 }

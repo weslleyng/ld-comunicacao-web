@@ -1,31 +1,64 @@
 .final {
-  background: var(--blue);
+  /* Deep base shown behind the bronze gradient image. */
+  background: #0a0d10;
   text-align: center;
-  padding: 130px 0;
+  padding: 150px 0;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(182, 138, 62, 0.35);
+  border-bottom: 1px solid rgba(182, 138, 62, 0.35);
 }
-.final::before {
-  content: "";
+
+/* Cinematic bronze backdrop (gradient-ld.webp) with a slow, living drift. */
+.bg {
   position: absolute;
-  right: -120px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 560px;
-  height: 560px;
-  background: url("/ld-icone.png") no-repeat center / contain;
-  opacity: 0.07;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  animation: finalDrift 26s var(--ease-out) infinite alternate;
+}
+/* Vignette + darkening so the white headline and gold CTA stay high-contrast
+   while the brushed-bronze texture glows through the edges. */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
   pointer-events: none;
+  background: radial-gradient(
+      130% 115% at 50% 42%,
+      rgba(10, 13, 16, 0.6) 0%,
+      rgba(10, 13, 16, 0.9) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(10, 13, 16, 0.12) 0%,
+      rgba(10, 13, 16, 0.42) 100%
+    );
+}
+.inner {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes finalDrift {
+  from {
+    transform: scale(1.04);
+  }
+  to {
+    transform: scale(1.12) translateY(-1.5%);
+  }
 }
 
 .final h2 {
   color: var(--white);
   max-width: 18ch;
   margin: 0 auto 38px;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.45);
 }
 
 .final :global(.kicker) {
-  color: #f0be6d;
+  color: var(--on-dark-accent);
   justify-content: center;
 }
 .final :global(.kicker)::before,
@@ -33,12 +66,12 @@
   content: "";
   width: 36px;
   height: 1px;
-  background: #f0be6d;
+  background: var(--on-dark-accent);
 }
 
 .final :global(.btn-note) {
   justify-content: center;
-  color: #d5e3ff;
+  color: var(--on-dark-strong);
 }
 
 @media (max-width: 600px) {

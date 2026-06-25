@@ -1,10 +1,74 @@
 .hero {
-  padding: 96px 0 110px;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* Full-bleed, full-screen below the 76px sticky header. */
+  min-height: calc(100vh - 76px);
+  min-height: calc(100dvh - 76px);
+  padding: 80px 0 96px;
+  /* Dark placeholder shown until the deferred background image fades in; also
+     guarantees contrast for the light text on the very first frame. */
+  background: linear-gradient(135deg, #16293f 0%, #0a0d10 100%);
+}
+
+/* Deferred background image + legibility overlay (rendered by HeroBackground). */
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.bgImage {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out);
+}
+.bgImageReady {
+  opacity: 1;
+}
+/* Darker on the left (under the text), clearing right so the press-room scene
+   stays visible behind the portrait; plus a vertical floor gradient. */
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      rgba(10, 13, 16, 0.86) 0%,
+      rgba(10, 13, 16, 0.62) 42%,
+      rgba(10, 13, 16, 0.32) 100%
+    ),
+    linear-gradient(180deg, rgba(10, 13, 16, 0.2) 0%, rgba(10, 13, 16, 0.55) 100%);
+}
+
+/* Content sits above the background layer and reads light on the dark scene. */
+.content {
+  position: relative;
+  z-index: 1;
+  color: var(--on-dark);
+}
+.content :global(.kicker) {
+  color: var(--on-dark-accent);
+}
+.content :global(.kicker)::before {
+  background: var(--on-dark-accent);
+}
+.content :global(.lead) {
+  color: var(--on-dark);
+}
+.content :global(.dropcap)::first-letter {
+  color: var(--on-dark-accent);
+}
+.content :global(.btn-note) {
+  color: var(--on-dark-muted);
 }
 
 .grid {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   display: grid;
   grid-template-columns: 7fr 5fr;
   gap: 72px;
@@ -12,15 +76,66 @@
 }
 
 .hero h1 {
+  font-size: clamp(2.25rem, 1.3rem + 4.6vw, 4.25rem); /* 36 → 68px */
   margin-bottom: 26px;
+  color: var(--on-dark-strong);
 }
 .hero h1 em {
   font-style: italic;
-  color: var(--gold-deep);
+  color: var(--on-dark-accent);
 }
 .hero :global(.lead) {
   margin-bottom: 38px;
   max-width: 56ch;
+}
+
+/* Cinematic staggered entrance. `both` fill keeps the start frame before the
+   delay (no flash); under prefers-reduced-motion the global rule collapses the
+   duration so everything is simply shown. */
+.content > * {
+  animation: heroEnter 0.6s var(--ease-out) both;
+}
+.content > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.content > *:nth-child(2) {
+  animation-delay: 0.02s;
+}
+.content > *:nth-child(3) {
+  animation-delay: 0.18s;
+}
+.content > *:nth-child(4) {
+  animation-delay: 0.28s;
+}
+.content > *:nth-child(5) {
+  animation-delay: 0.36s;
+}
+/* The h1 is the likely LCP element: translate-led and starting near-opaque so
+   the meaningful paint isn't delayed by a fade from zero. */
+.content > h1 {
+  animation-name: heroEnterTitle;
+  animation-duration: 0.7s;
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes heroEnterTitle {
+  from {
+    opacity: 0.55;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .media {
@@ -42,6 +157,8 @@
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  /* Lift the portrait off the busy background scene. */
+  box-shadow: 0 34px 70px -28px rgba(0, 0, 0, 0.7);
 }
 .photo img {
   position: absolute;
@@ -50,19 +167,95 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Bias the crop toward the face so the head is never cut, on any aspect. */
+  object-position: center 20%;
+  /* Ken Burns zooms toward the face (not the geometric center). */
+  transform-origin: center 22%;
+  /* Slow Ken Burns drift; disabled under prefers-reduced-motion (globals). */
+  animation: heroKenBurns 22s var(--ease-out) infinite alternate;
 }
-/* Subtle editorial vignette anchors the photo to the layout. */
+/* Cinematic vignette + faint blue→gold duotone wash; kept low so the face
+   stays legible. */
 .photo::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   background: linear-gradient(
-    180deg,
-    rgba(22, 41, 63, 0) 55%,
-    rgba(22, 41, 63, 0.3) 100%
-  );
+      180deg,
+      rgba(22, 41, 63, 0) 42%,
+      rgba(22, 41, 63, 0.42) 100%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(31, 58, 95, 0.16) 0%,
+      transparent 55%,
+      rgba(182, 138, 62, 0.12) 100%
+    );
   pointer-events: none;
+}
+
+/* Editorial corner brackets (top-left + bottom-right) framing the portrait. */
+.photo::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.65;
+  background: linear-gradient(var(--gold), var(--gold)) left top / 20px 1px
+      no-repeat,
+    linear-gradient(var(--gold), var(--gold)) left top / 1px 20px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right bottom / 20px 1px no-repeat,
+    linear-gradient(var(--gold), var(--gold)) right bottom / 1px 20px no-repeat;
+}
+
+@keyframes heroKenBurns {
+  from {
+    transform: scale(1.02);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+/* Scroll affordance anchored to the bottom of the hero. */
+.scrollCue {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--on-dark-accent);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.scrollCue svg {
+  animation: heroScrollBounce 1.8s var(--ease-out) infinite;
+}
+@keyframes heroScrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+/* Hidden once the layout stacks, to avoid clashing with the portrait. */
+@media (max-width: 1024px) {
+  .scrollCue {
+    display: none;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -73,7 +266,7 @@
   /* Full-width single column: cap the height so the portrait doesn't dominate. */
   .photo {
     aspect-ratio: auto;
-    height: clamp(320px, 52vw, 460px);
+    height: clamp(441px, 52vw, 460px);
   }
 }
 

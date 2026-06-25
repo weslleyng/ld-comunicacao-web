@@ -1,32 +1,28 @@
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import styles from "./Benefits.module.css";
 
-const benefits = [
-  {
-    title: "Autoridade percebida",
-    text: 'Quem aparece na mídia deixa de ser "mais um" e vira a referência da categoria.',
-  },
-  {
-    title: "Credibilidade que abre portas",
-    text: '"Vi você na Globo" pesa mais que qualquer anúncio e encurta a decisão do cliente.',
-  },
-  {
-    title: "Conteúdo que se multiplica",
-    text: "Cada entrevista vira prova social reaproveitável nas suas redes e no seu site.",
-  },
+const valores = [
+  "Reforço de autoridade",
+  "Aumento de visibilidade",
+  "Aumento de credibilidade",
+  "Relevância no mercado",
+  "Conexão com audiência",
+  "Aumento de engajamento e vendas como consequência",
 ];
 
 export default function Benefits() {
   return (
-    <section aria-label="O que muda">
+    <section aria-label="Valores">
       <div className="container">
-        <p className="kicker">O que muda</p>
-        <h2>O que a presença na imprensa constrói</h2>
+        <p className="kicker">Valores</p>
+        <h2>Nossos principais objetivos</h2>
         <div className={styles.grid}>
-          {benefits.map((benefit) => (
-            <div key={benefit.title} className={styles.benefit}>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.text}</p>
+          {valores.map((valor, index) => (
+            <div key={valor} className={styles.benefit}>
+              <span className={styles.num}>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3>{valor}</h3>
             </div>
           ))}
         </div>

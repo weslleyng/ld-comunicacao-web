@@ -1,0 +1,83 @@
+.about {
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* Portrait reuses the hero photo with a calmer, framed editorial treatment
+   (offset gold hairline instead of the hero's solid frame). */
+.portrait {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  outline: 1px solid var(--gold);
+  outline-offset: 10px;
+}
+.portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.body :global(.lead) {
+  margin-top: 22px;
+  max-width: 56ch;
+}
+.text {
+  margin-top: 18px;
+  color: var(--ink-soft);
+  font-size: 16.5px;
+  line-height: 1.7;
+  max-width: 60ch;
+  text-wrap: pretty;
+}
+
+/* Closing pull quote. */
+.quote {
+  margin: 30px 0 0;
+  padding-left: 24px;
+  border-left: 3px solid var(--gold);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 1.05rem + 0.9vw, 1.625rem); /* 20 → 26px */
+  line-height: 1.4;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.signature {
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+.signature span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .portrait {
+    aspect-ratio: auto;
+    height: clamp(441px, 60vw, 480px);
+  }
+}

@@ -1,6 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { INSTAGRAM_URL, INSTAGRAM_HANDLE, ADDRESS_LINE } from "@/lib/site";
+import {
+  INSTAGRAM_URL,
+  ADDRESS_LINE,
+  LINKEDIN_URL,
+  FACEBOOK_URL,
+  GOOGLE_BUSINESS_URL,
+} from "@/lib/site";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -15,7 +21,16 @@ export default function Footer() {
         />
         <nav className={styles.links} aria-label="Links do rodapé">
           <a href={INSTAGRAM_URL} target="_blank" rel="noopener">
-            Instagram {INSTAGRAM_HANDLE}
+            Instagram
+          </a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener">
+            LinkedIn
+          </a>
+          <a href={FACEBOOK_URL} target="_blank" rel="noopener">
+            Facebook
+          </a>
+          <a href={GOOGLE_BUSINESS_URL} target="_blank" rel="noopener">
+            Google
           </a>
           <Link href="/termos">Termos de uso</Link>
           <Link href="/privacidade">Política de privacidade</Link>

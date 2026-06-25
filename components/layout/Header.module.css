@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(251, 249, 244, 0.94);
+  background: var(--glass);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -10,13 +10,29 @@
 .inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 24px;
   height: 76px;
 }
 
+/* Logo stays left; the auto margin pushes nav + CTA + hamburger to the right. */
+.logo {
+  margin-right: auto;
+}
 .logo img {
   height: 34px;
   width: auto;
+}
+
+/* Logo swap per Tweak: dark-on-light logo by default, white logo on the
+   dark Noturno Tweak. [data-tweak] lives on <html>, hence :global(). */
+.logoDark {
+  display: none;
+}
+:global([data-tweak="noturno"]) .logoLight {
+  display: none;
+}
+:global([data-tweak="noturno"]) .logoDark {
+  display: block;
 }
 
 /* Header CTA override (was `.topbar .btn`). Compound selector keeps higher
