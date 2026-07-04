@@ -4,6 +4,3 @@
 {"id":"event-000001","type":"session.stop","ts":"2026-06-25T01:01:39Z","state":"stopped"}
 {"id":"event-000001","type":"session.stop","ts":"2026-06-25T22:01:31Z","state":"stopped"}
 {"id":"event-000001","type":"session.stop","ts":"2026-06-25T22:03:41Z","state":"stopped"}
-{"id":"event-000013","type":"session.stop","ts":"2026-06-28T05:52:54Z","state":"stopped"}
-{"id":"event-000001","type":"session.stop","ts":"2026-06-29T13:37:43Z","state":"stopped"}
-{"id":"event-000001","type":"session.stop","ts":"2026-07-04T23:00:30Z","state":"stopped"}

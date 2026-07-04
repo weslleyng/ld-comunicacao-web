@@ -1,10 +1,10 @@
 import Image, { type StaticImageData } from "next/image";
 import InstagramEmbed from "@/components/ui/InstagramEmbed";
 import styles from "./Cases.module.css";
-import clienteTextil from "@/assets/img/cliente-textil.png";
-import clienteRedeAmazonica from "@/assets/img/cliente-rede-amazonica.png";
-import clienteCbn from "@/assets/img/cliente-cbn.png";
-import advEspecialista from "@/assets/img/adv-especialista.png";
+import clienteTextil from "@/assets/img/cliente-textil.webp";
+import clienteRedeAmazonica from "@/assets/img/cliente-rede-amazonica.webp";
+import clienteCbn from "@/assets/img/cliente-cbn.webp";
+import advEspecialista from "@/assets/img/adv-especialista.webp";
 
 type Case = {
   tag: string;

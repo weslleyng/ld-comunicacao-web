@@ -5,26 +5,21 @@ import { TWEAKS, TWEAK_KEY } from "@/lib/tweaks";
 import styles from "./TweakSwitcher.module.css";
 
 /**
- * Floating preview control to switch the whole-page design "Tweak".
+ * Floating control to switch the whole-page design "Tweak".
  *
- * Preview-only: it renders nothing unless the inline script in the layout head
- * marked the document with data-preview="1" (dev, or ?preview=1 in the URL), so
- * real visitors never see it and the published site always serves the base theme.
- * The active Tweak is applied by toggling [data-tweak] on <html>; the choice is
- * persisted to localStorage and restored by that same inline script on reload.
+ * Always visible (mobile and desktop). The active Tweak is applied by toggling
+ * [data-tweak] on <html>; the choice is persisted to localStorage and restored
+ * by the inline bootstrap script in the layout on reload, so it survives
+ * navigation and refreshes.
  */
 export default function TweakSwitcher() {
-  const [enabled, setEnabled] = useState(false);
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState("");
   const rootRef = useRef<HTMLDivElement>(null);
 
-  // Read the preview flag + current Tweak after mount (client-only → no SSR
-  // markup, so there is no hydration mismatch).
+  // Sync the active Tweak from <html> after mount (set by the bootstrap script).
   useEffect(() => {
-    const html = document.documentElement;
-    setEnabled(html.getAttribute("data-preview") === "1");
-    setCurrent(html.getAttribute("data-tweak") ?? "");
+    setCurrent(document.documentElement.getAttribute("data-tweak") ?? "");
   }, []);
 
   // While the panel is open, close it on Escape or an outside click.
@@ -68,8 +63,6 @@ export default function TweakSwitcher() {
     setCurrent(id);
     setOpen(false);
   }, []);
-
-  if (!enabled) return null;
 
   const activeLabel =
     TWEAKS.find((t) => t.id === current)?.label ?? TWEAKS[0].label;

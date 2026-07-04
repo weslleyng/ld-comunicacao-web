@@ -12,12 +12,18 @@ import Contact from "@/components/sections/Contact";
 import FinalCta from "@/components/sections/FinalCta";
 import Disclaimer from "@/components/sections/Disclaimer";
 import Reveal from "@/components/ui/Reveal";
+import { faqJsonLd } from "@/lib/faqs";
 
 export default function Home() {
   // Hero stays unwrapped so it renders instantly (best LCP); the sections
   // below the fold reveal on scroll.
   return (
     <>
+      {/* FAQPage lives only on the home page, where the FAQ section renders. */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <Hero />
       <Reveal>
         <Press />

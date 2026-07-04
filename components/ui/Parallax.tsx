@@ -26,6 +26,7 @@ export default function Parallax({
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     let raf = 0;
+    let idleTimer: ReturnType<typeof setTimeout> | undefined;
     const update = () => {
       raf = 0;
       const rect = node.getBoundingClientRect();
@@ -34,6 +35,12 @@ export default function Parallax({
       node.style.transform = `translate3d(0, ${offset.toFixed(1)}px, 0)`;
     };
     const onScroll = () => {
+      // Promote to its own layer only while actively scrolling, then release.
+      node.style.willChange = "transform";
+      if (idleTimer) clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        node.style.willChange = "auto";
+      }, 200);
       if (!raf) raf = requestAnimationFrame(update);
     };
 
@@ -44,11 +51,12 @@ export default function Parallax({
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
+      if (idleTimer) clearTimeout(idleTimer);
     };
   }, [speed]);
 
   return (
-    <div ref={ref} className={className} style={{ willChange: "transform" }}>
+    <div ref={ref} className={className}>
       {children}
     </div>
   );

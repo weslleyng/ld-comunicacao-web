@@ -88,3 +88,104 @@
 - （必要に応じて追記）
 
 ---
+
+## セッション: 2026-06-25T22:01:31Z
+
+- session_id: `session-1782424867272497500`
+- project: `projeto`
+- branch: `main`
+- started_at: `2026-06-25T22:01:07Z`
+- ended_at: `2026-06-25T22:01:31Z`
+- changes: 0
+
+### 変更ファイル
+- （なし）
+
+### 重要な変更（important=true）
+- （なし）
+
+### 次回への引き継ぎ（任意）
+- （必要に応じて追記）
+
+---
+
+## セッション: 2026-06-25T22:03:41Z
+
+- session_id: `session-1782425005541073500`
+- project: `projeto`
+- branch: `main`
+- started_at: `2026-06-25T22:03:25Z`
+- ended_at: `2026-06-25T22:03:41Z`
+- changes: 0
+
+### 変更ファイル
+- （なし）
+
+### 重要な変更（important=true）
+- （なし）
+
+### 次回への引き継ぎ（任意）
+- （必要に応じて追記）
+
+---
+
+## セッション: 2026-06-28T05:52:54Z
+
+- session_id: `session-1782625407916472600`
+- project: `projeto`
+- branch: `main`
+- started_at: `2026-06-28T05:43:27Z`
+- ended_at: `2026-06-28T05:52:54Z`
+- duration_minutes: 9
+- changes: 0
+
+### 変更ファイル
+- （なし）
+
+### 重要な変更（important=true）
+- （なし）
+
+### 次回への引き継ぎ（任意）
+- （必要に応じて追記）
+
+---
+
+## セッション: 2026-06-29T13:37:43Z
+
+- session_id: `session-1782740243751620400`
+- project: `projeto`
+- branch: `main`
+- started_at: `2026-06-29T13:37:23Z`
+- ended_at: `2026-06-29T13:37:43Z`
+- changes: 0
+
+### 変更ファイル
+- （なし）
+
+### 重要な変更（important=true）
+- （なし）
+
+### 次回への引き継ぎ（任意）
+- （必要に応じて追記）
+
+---
+
+## セッション: 2026-07-04T23:00:30Z
+
+- session_id: `session-1783206004391599900`
+- project: `projeto`
+- branch: `main`
+- started_at: `2026-07-04T23:00:04Z`
+- ended_at: `2026-07-04T23:00:30Z`
+- changes: 0
+
+### 変更ファイル
+- （なし）
+
+### 重要な変更（important=true）
+- （なし）
+
+### 次回への引き継ぎ（任意）
+- （必要に応じて追記）
+
+---

@@ -1,9 +1,9 @@
 {
   "changes_this_session": [],
   "cwd": "C:\\Users\\wesll\\Documents\\WBM Studio\\Clientes\\Luana Davila - LD Comunicação\\projeto",
-  "duration_minutes": 0,
-  "ended_at": "2026-07-04T23:00:30Z",
-  "event_seq": 6,
+  "duration_minutes": 9,
+  "ended_at": "2026-06-28T05:52:54Z",
+  "event_seq": 12,
   "fork_count": 0,
   "git": {
     "branch": "main",
@@ -12,13 +12,10 @@
   },
   "harness_mem": {
     "healthy": false,
-    "last_checked": "2026-07-04T23:00:04Z",
+    "last_checked": "2026-06-28T05:43:27Z",
     "last_error": "daemon-unreachable"
   },
-  "intent": "literal",
-  "last_event_id": "event-000006",
-  "last_message_hash": "0d2ed9176eb798c7",
-  "last_message_length": 943,
+  "last_event_id": "event-000012",
   "memory_logged": true,
   "orchestration": {
     "max_state_retries": 3,
@@ -34,11 +31,11 @@
     "wip_tasks": 0
   },
   "project_name": "projeto",
-  "prompt_seq": 8,
-  "resume_token": "resume-1783206004391599900",
-  "session_id": "session-1783206004391599900",
-  "started_at": "2026-07-04T23:00:04Z",
+  "prompt_seq": 0,
+  "resume_token": "resume-1782625407916472600",
+  "session_id": "session-1782625407916472600",
+  "started_at": "2026-06-28T05:43:27Z",
   "state": "stopped",
   "state_version": 1,
-  "updated_at": "2026-07-04T23:19:26Z"
+  "updated_at": "2026-06-28T05:52:30Z"
 }

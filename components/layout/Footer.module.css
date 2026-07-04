@@ -38,3 +38,10 @@
   /* Lightened from #7f9bc4 to clear WCAG AA (>=4.5:1) on the dark footer. */
   color: var(--on-dark-muted);
 }
+
+.credit {
+  width: 100%;
+  margin-top: -20px;
+  font-size: 13px;
+  color: var(--on-dark-muted);
+}

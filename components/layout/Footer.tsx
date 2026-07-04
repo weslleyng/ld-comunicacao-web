@@ -38,6 +38,12 @@ export default function Footer() {
         <p className={styles.addr}>
           {ADDRESS_LINE} · © 2026 LD Comunicação. Todos os direitos reservados.
         </p>
+        <p className={styles.credit}>
+          Desenvolvido por{" "}
+          <a href="https://weslley.dev" target="_blank" rel="noopener">
+            Weslley.dev
+          </a>
+        </p>
       </div>
     </footer>
   );

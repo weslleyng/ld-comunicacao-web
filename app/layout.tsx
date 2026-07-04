@@ -10,9 +10,9 @@ import {
   SITE_NAME,
   SITE_TITLE,
   SITE_DESCRIPTION,
-  jsonLd,
+  siteJsonLd,
 } from "@/lib/site";
-import { PREVIEW_KEY, TWEAK_KEY } from "@/lib/tweaks";
+import { TWEAK_KEY } from "@/lib/tweaks";
 import "./globals.css";
 
 // Self-hosted fonts exposed as CSS variables, bridged in globals.css to the
@@ -96,17 +96,12 @@ export const viewport: Viewport = {
   themeColor: "#FBF9F4",
 };
 
-// Preview-mode bootstrap: runs before the page paints so the chosen Tweak is
-// applied without a flash. Preview is enabled in dev or when the URL carries
-// ?preview=1 (persisted in localStorage); ?preview=0 turns it off. A visitor
-// without the flag gets no attributes, so the published site always renders the
-// base theme (Editorial Premium).
-const isDev = process.env.NODE_ENV !== "production";
-const previewBootstrap = `(function(){try{var d=document.documentElement,ls=window.localStorage,P=${JSON.stringify(
-  PREVIEW_KEY
-)},T=${JSON.stringify(
+// Restores the visitor's saved design Tweak before the first paint, so the
+// chosen theme is applied without a flash on reload. The switcher is always
+// available, so the choice persists for every visitor.
+const previewBootstrap = `(function(){try{var d=document.documentElement,ls=window.localStorage,T=${JSON.stringify(
   TWEAK_KEY
-)},q=new URLSearchParams(location.search);if(q.has("preview")){var v=q.get("preview");if(v==="0"||v==="false"){ls.removeItem(P);}else{ls.setItem(P,"1");}}var on=${isDev}||ls.getItem(P)==="1";if(on){d.setAttribute("data-preview","1");var t=ls.getItem(T)||"";if(t){d.setAttribute("data-tweak",t);}else{d.removeAttribute("data-tweak");}}else{d.removeAttribute("data-preview");d.removeAttribute("data-tweak");}}catch(e){}})();`;
+)};var t=ls.getItem(T)||"";if(t){d.setAttribute("data-tweak",t);}else{d.removeAttribute("data-tweak");}}catch(e){}})();`;
 
 export default function RootLayout({
   children,
@@ -142,7 +137,7 @@ export default function RootLayout({
         <TweakSwitcher />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
       </body>
     </html>
