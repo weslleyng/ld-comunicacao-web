@@ -50,6 +50,16 @@ export const ADDRESS = {
 
 export const ADDRESS_LINE = "Avenida Professor Nilton Lins, 877 — Manaus, AM";
 
+// Legal entity details, used on /termos and (later) /privacidade.
+export const LEGAL_NAME = "L. Dávila Silveira";
+
+export const CNPJ = "62.745.332/0001-52";
+
+export const MUNICIPAL_REGISTRATION = "688508001";
+
+export const FULL_ADDRESS_LINE =
+  "Avenida Professor Nilton Lins, 877 — Bairro Flores, Manaus/AM, CEP 69.058-030";
+
 // Stable @id anchors for the entity graph. Hash fragments on the canonical URL
 // let every schema node cross-reference the same Organization / Person, which
 // is what AI engines use to attribute the brand and the person behind it.
