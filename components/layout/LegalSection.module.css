@@ -57,6 +57,25 @@
   margin: 40px 0 24px;
 }
 
+.inner table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 16px;
+}
+.inner th,
+.inner td {
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.inner th {
+  color: var(--ink);
+  font-weight: 600;
+}
+
 @media (max-width: 600px) {
   .section {
     padding: 64px 0;
@@ -67,5 +86,10 @@
   .inner h2 {
     font-size: 22px;
     margin-top: 32px;
+  }
+  .inner th,
+  .inner td {
+    font-size: 14px;
+    padding: 8px 10px;
   }
 }

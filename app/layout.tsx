@@ -73,6 +73,14 @@ export const metadata: Metadata = {
     url: `${SITE_URL}/`,
     images: [
       {
+        url: `${SITE_URL}/og-image-luana.png`,
+        width: 1200,
+        height: 630,
+        alt: "Luana Dávila — LD Comunicação, Assessoria de Imprensa em Manaus",
+        type: "image/png",
+      },
+      {
+        // Fallback: logo-only card, used if the primary image fails to load.
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
@@ -86,7 +94,7 @@ export const metadata: Metadata = {
     title: SITE_TITLE,
     description:
       "Sua expertise merece estar na imprensa que constrói autoridade. 14 anos de experiência.",
-    images: [`${SITE_URL}/og-image.png`],
+    images: [`${SITE_URL}/og-image-luana.png`, `${SITE_URL}/og-image.png`],
   },
 };
 

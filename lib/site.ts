@@ -76,7 +76,6 @@ export const WEBPAGE_ID = `${SITE_URL}/#webpage`;
 //   priceRange: "$$" | "Sob consulta"       // faixa de preço
 //   geo: { latitude, longitude }            // coordenadas do endereço em Manaus
 //   openingHoursSpecification: [...]         // horário de atendimento
-//   founder/Person.image: URL pública da foto da Luana
 
 // Schema.org entity graph for local SEO + GEO. A single @graph unifies the
 // Organization (ProfessionalService), the Person behind it, and the WebSite /
@@ -159,6 +158,7 @@ export const siteJsonLd = {
       description:
         "Jornalista com mais de 14 anos de experiência, sendo dez anos dentro de redações de jornais. Fundadora e CEO da LD Comunicação.",
       url: `${SITE_URL}/#sobre`,
+      image: `${SITE_URL}/luana-davila.jpeg`,
       worksFor: { "@id": ORG_ID },
       knowsAbout: [
         "Assessoria de imprensa",
