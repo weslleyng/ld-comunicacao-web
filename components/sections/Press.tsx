@@ -1,14 +1,14 @@
 import styles from "./Press.module.css";
 
 const bullets = [
-  "Entrevistas em TV, rádio, jornais e portais.",
+  "Entrevistas em TVs, rádios, jornais e portais.",
   "Inserções em veículos regionais e nacionais.",
   "Posicionamento de especialistas em diferentes áreas.",
   "Divulgação de eventos corporativos e institucionais.",
 ];
 
 const outlets = [
-  "Rede Amazônica",
+  "Rede Globo Amazonas",
   "TV A Crítica",
   "SBT Amazonas",
   "Record News",

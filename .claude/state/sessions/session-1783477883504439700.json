@@ -1,0 +1,42 @@
+{
+  "changes_this_session": [],
+  "cwd": "C:\\Users\\wesll\\Documents\\projetos\\ld-comunicacao-landing-page",
+  "duration_minutes": 9,
+  "ended_at": "2026-07-08T02:40:55Z",
+  "event_seq": 0,
+  "fork_count": 0,
+  "git": {
+    "branch": "main",
+    "last_commit": "6da3fd1",
+    "uncommitted_changes": 0
+  },
+  "harness_mem": {
+    "healthy": false,
+    "last_checked": "2026-07-08T02:31:23Z",
+    "last_error": "daemon-unreachable"
+  },
+  "intent": "literal",
+  "last_event_id": "",
+  "memory_logged": true,
+  "orchestration": {
+    "max_state_retries": 3,
+    "retry_backoff_seconds": 10
+  },
+  "parent_session_id": null,
+  "plans": {
+    "completed_tasks": 0,
+    "exists": false,
+    "last_modified": 0,
+    "pending_tasks": 0,
+    "todo_tasks": 0,
+    "wip_tasks": 0
+  },
+  "project_name": "ld-comunicacao-landing-page",
+  "prompt_seq": 2,
+  "resume_token": "resume-1783477883504439700",
+  "session_id": "session-1783477883504439700",
+  "started_at": "2026-07-08T02:31:23Z",
+  "state": "stopped",
+  "state_version": 1,
+  "updated_at": "2026-07-08T02:31:23Z"
+}

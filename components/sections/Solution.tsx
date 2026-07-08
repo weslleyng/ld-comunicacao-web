@@ -13,8 +13,8 @@ const steps = [
   },
   {
     num: "Passo 03",
-    title: "Aparições conquistadas",
-    text: "Você passa a ser fonte em TV, rádio, jornal e portais, com material que reforça sua autoridade de forma contínua.",
+    title: "Espaços estratégicos na imprensa",
+    text: "Você passa a ser fonte em TVs, rádios, jornais e portais, com matérias que reforçam sua autoridade de forma contínua.",
   },
 ];
 

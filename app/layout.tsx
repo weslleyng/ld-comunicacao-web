@@ -4,7 +4,6 @@ import { Playfair_Display, Inter } from "next/font/google";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileCtaBar from "@/components/layout/MobileCtaBar";
-import TweakSwitcher from "@/components/ui/TweakSwitcher";
 import {
   SITE_URL,
   SITE_NAME,
@@ -12,7 +11,6 @@ import {
   SITE_DESCRIPTION,
   siteJsonLd,
 } from "@/lib/site";
-import { TWEAK_KEY } from "@/lib/tweaks";
 import "./globals.css";
 
 // Self-hosted fonts exposed as CSS variables, bridged in globals.css to the
@@ -96,22 +94,11 @@ export const viewport: Viewport = {
   themeColor: "#FBF9F4",
 };
 
-// Restores the visitor's saved design Tweak before the first paint, so the
-// chosen theme is applied without a flash on reload. The switcher is always
-// available, so the choice persists for every visitor.
-const previewBootstrap = `(function(){try{var d=document.documentElement,ls=window.localStorage,T=${JSON.stringify(
-  TWEAK_KEY
-)};var t=ls.getItem(T)||"";if(t){d.setAttribute("data-tweak",t);}else{d.removeAttribute("data-tweak");}}catch(e){}})();`;
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="pt-BR"
-      className={`${playfair.variable} ${inter.variable}`}
-      suppressHydrationWarning
-    >
+    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
       <body>
         {/* Google Analytics 4 — loaded after hydration so it never blocks render. */}
         <Script
@@ -126,7 +113,6 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
-        <script dangerouslySetInnerHTML={{ __html: previewBootstrap }} />
         <a href="#main" className="skip-link">
           Pular para o conteúdo
         </a>
@@ -134,7 +120,6 @@ export default function RootLayout({
         <main id="main">{children}</main>
         <Footer />
         <MobileCtaBar />
-        <TweakSwitcher />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}

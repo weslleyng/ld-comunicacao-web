@@ -6,7 +6,6 @@ import Benefits from "@/components/sections/Benefits";
 import Services from "@/components/sections/Services";
 import About from "@/components/sections/About";
 import Cases from "@/components/sections/Cases";
-import CostComparison from "@/components/sections/CostComparison";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import FinalCta from "@/components/sections/FinalCta";
@@ -45,7 +44,8 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <Cases />
-      </Reveal>      
+      </Reveal>
+      
       <Reveal>
         <Faq />
       </Reveal>
@@ -54,7 +54,10 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <FinalCta />
-      </Reveal>      
+      </Reveal>
+      <Reveal>
+        <Disclaimer />
+      </Reveal>
     </>
   );
 }

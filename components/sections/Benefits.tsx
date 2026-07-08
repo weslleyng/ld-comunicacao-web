@@ -27,7 +27,7 @@ export default function Benefits() {
           ))}
         </div>
         <div className={styles.midcta}>
-          <WhatsAppButton variant="primary" />
+          <WhatsAppButton variant="gold" />
         </div>
       </div>
     </section>

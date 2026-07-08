@@ -16,8 +16,8 @@ export default function FinalCta() {
         <h2>Pronto para ser reconhecido como a autoridade que você já é?</h2>
         <WhatsAppButton variant="gold" />
         <p className="btn-note">
-          Atendimento direto com a jornalista. Sem compromisso na primeira
-          conversa.
+          Atendimento direto com a equipe da jornalista. Sem compromisso na
+          primeira conversa.
         </p>
       </div>
     </section>

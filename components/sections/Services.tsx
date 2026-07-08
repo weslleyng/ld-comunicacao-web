@@ -20,7 +20,7 @@ export default function Services() {
     <section id="servicos" className={styles.services} aria-label="Serviços">
       <div className="container">
         <p className="kicker">Serviços</p>
-        <h2>O que a LD Comunicação oferece</h2>
+        <h2>Nossas Soluções</h2>
         <ul className={styles.list}>
           {services.map((service) => (
             <li key={service} className="cascade-item">

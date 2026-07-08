@@ -24,10 +24,10 @@ export default function Contact() {
       <div className={`container ${styles.grid}`}>
         <div className={styles.intro}>
           <p className="kicker">Contato</p>
-          <h2>Vamos conversar sobre a sua presença na imprensa</h2>
+          <h2>Vamos conversar sobre a sua presença na imprensa?</h2>
           <p className={styles.lead}>
-            Atendimento direto com a jornalista, presencial em Manaus e online
-            para todo o Brasil.
+            Atendimento direto com a equipe da jornalista. Atendemos todo o
+            Brasil.
           </p>
           <WhatsAppButton variant="gold" />
         </div>

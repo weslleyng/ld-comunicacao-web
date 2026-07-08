@@ -7,7 +7,7 @@ const items = [
   },
   {
     num: "02",
-    text: "Profissionais com menos preparo aparecem mais — e levam os clientes que deveriam ser seus.",
+    text: "Profissionais com menos preparo aparecem mais, e levam os clientes que deveriam ser seus.",
   },
   {
     num: "03",
@@ -24,7 +24,7 @@ export default function Problem() {
           <h2>Competência sozinha não vira reputação</h2>
           <p className={styles.cost}>
             Cada mês sem presença na imprensa é mais um mês deixando que o mercado
-            defina sua reputação por você — e escolhendo o concorrente mais
+            defina sua reputação por você e, acabe escolhendo o concorrente mais
             visível, não o mais competente.
           </p>
         </div>

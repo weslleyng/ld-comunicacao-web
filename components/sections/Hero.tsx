@@ -16,14 +16,11 @@ export default function Hero() {
             Assessoria estratégica faz seu negócio <em>virar notícia</em>.
           </h1>
           <p className="lead dropcap">
-            Transformo a sua experiência em pauta e o seu nome em fonte para TV,
-            rádio, jornais e portais. São 14 anos entre redações e assessoria
-            construindo autoridade por meio da imprensa espontânea — não do
-            anúncio pago.
+           Transformo a sua experiência em pauta e o seu nome em fonte para TVs, rádios, jornais e portais. São mais de 14 anos entre redações e assessoria, construindo autoridade por meio da imprensa espontânea, não do anúncio pago.
           </p>
           <WhatsAppButton variant="gold" />
           <p className="btn-note">
-            Atendimento direto com a jornalista. Resposta no mesmo dia.
+            Atendimento direto com a equipe da jornalista. Resposta em até um dia útil.
           </p>
         </div>
         <Parallax className={styles.media}>

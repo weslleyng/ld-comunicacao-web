@@ -23,9 +23,7 @@
     0 6px 16px rgba(22, 41, 63, 0.08);
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Semantic surfaces & on-color tokens. Default values match the original
-     hardcoded colors, so the base (Clássico Editorial) look is unchanged —
-     they exist so an alternate Tweak can repaint the whole page from :root. */
+  /* Semantic surfaces & on-color tokens, consumed by the section modules. */
   --surface: #ffffff; /* card / panel backgrounds (was raw var(--white)) */
   --section-accent: #1f3a5f; /* Press + Final CTA section background */
   --footer-bg: #16293f; /* footer background */
@@ -42,37 +40,6 @@
      migrated selector needs to change. The *-next vars are injected on <html>. */
   --font-display: var(--font-display-next), Georgia, serif;
   --font-body: var(--font-body-next), -apple-system, sans-serif;
-}
-
-/* ============================================================
-   TWEAK: Noturno Premium — dark editorial variant.
-   Activated by [data-tweak="noturno"] on <html> (preview only).
-   Token-only: repaints every section without touching markup.
-   ============================================================ */
-[data-tweak="noturno"] {
-  --bg: #0f1216; /* near-black graphite page */
-  --surface: #171c22; /* elevated cards on the dark page */
-  --ink: #f4f0e8; /* warm off-white body text */
-  --ink-soft: #a7afba; /* muted secondary text */
-  --line: #29313b; /* hairlines on dark */
-  --gold: #d8a94e; /* brighter gold reads on dark */
-  --gold-deep: #ecc57e; /* light gold for headings / accents */
-  --gold-tint: #221e14; /* warm dark tint */
-  --blue: #33609f; /* primary CTA stays visible on near-black */
-  --blue-deep: #24486f; /* primary CTA hover */
-  --section-accent: #141a22; /* deep navy-graphite accent panels */
-  --footer-bg: #0c1117; /* darkest band for the footer */
-  --glass: rgba(15, 18, 22, 0.86); /* dark glass header / CTA bar */
-  --hero-tint: rgba(216, 169, 78, 0.1); /* slightly stronger gold glow */
-  --on-dark: #c9d2de;
-  --on-dark-strong: #f4f0e8;
-  --on-dark-muted: #9fb0c4;
-  --on-dark-accent: #ecc57e;
-  --on-dark-line: rgba(201, 210, 222, 0.18);
-  --on-gold: #20170a; /* dark text on the bright gold reads cleanly */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 24px 50px -24px rgba(0, 0, 0, 0.7),
-    0 4px 16px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -250,20 +217,6 @@ h3 {
   border-radius: 50%;
   background: var(--gold);
   flex: none;
-}
-
-/* ---------- Tweak switching ---------- */
-
-/* Brief cross-fade of colours while the preview switcher changes the Tweak.
-   The TweakSwitcher adds this class for ~450ms (and skips it under
-   prefers-reduced-motion), so it never affects normal browsing. */
-html.tweak-animating,
-html.tweak-animating *,
-html.tweak-animating *::before,
-html.tweak-animating *::after {
-  transition: background-color 0.45s var(--ease-out),
-    color 0.45s var(--ease-out), border-color 0.45s var(--ease-out),
-    fill 0.45s var(--ease-out), box-shadow 0.45s var(--ease-out) !important;
 }
 
 /* ---------- Focus, motion & accessibility ---------- */

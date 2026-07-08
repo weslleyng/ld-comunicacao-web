@@ -6,7 +6,7 @@ export default function Faq() {
     <section className={styles.faq} aria-label="Perguntas frequentes">
       <div className={`container ${styles.inner}`}>
         <p className="kicker kicker--center">Perguntas frequentes</p>
-        <h2>Assessoria de imprensa estratégica, sem letras miúdas</h2>
+        <h2>Assessoria de imprensa estratégica, com entregas claras e resultados reais</h2>
         <div className={styles.list}>
           {faqs.map((faq) => (
             <details key={faq.q}>

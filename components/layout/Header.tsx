@@ -14,25 +14,15 @@ export default function Header() {
           aria-label="LD Comunicação — Assessoria de Imprensa"
         >
           <Image
-            className={styles.logoLight}
             src="/ld-horizontal.png"
             width={151}
             height={34}
             alt="LD Comunicação — Assessoria de Imprensa"
             priority
           />
-          {/* Light logo for the dark "Noturno" Tweak (toggled via CSS). */}
-          <Image
-            className={styles.logoDark}
-            src="/ld-horizontal-branco.png"
-            width={151}
-            height={34}
-            alt=""
-            aria-hidden="true"
-          />
         </Link>
         <SiteNav />
-        <WhatsAppButton variant="primary" iconSize={17} className={styles.cta} />
+        <WhatsAppButton variant="gold" iconSize={17} className={styles.cta} />
       </div>
     </header>
   );
