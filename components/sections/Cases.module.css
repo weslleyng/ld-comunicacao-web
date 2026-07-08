@@ -7,6 +7,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  align-items: start;
   gap: 32px;
   margin-top: 56px;
 }
@@ -32,6 +33,18 @@
   aspect-ratio: 16 / 10;
   background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
   border-bottom: 1px solid var(--line);
+}
+
+/* Print de matéria exibido inteiro (sem corte), altura definida pela imagem. */
+.mediaFull {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid var(--line);
+}
+.mediaFull img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Instagram embed sits in place of the photo; embed.js sizes the iframe

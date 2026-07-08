@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./About.module.css";
-import luanaPhoto from "@/assets/Luana-pic.jpeg";
+import luanaPhoto from "@/assets/Luana-profile.jpeg";
 
 export default function About() {
   return (
@@ -19,7 +19,7 @@ export default function About() {
         <div className={styles.body}>
           <p className="kicker">A jornalista por trás da LD</p>
           <h2>Das redações de jornais à reputação da sua marca</h2>
-          <p className="lead">
+          <p className={styles.text}>
             Comecei a trabalhar em jornais aos 21 anos e passei dez anos dentro
             das redações. O que começou como uma paixão por contar histórias se
             transformou em uma trajetória de mais de 14 anos entre o jornalismo e

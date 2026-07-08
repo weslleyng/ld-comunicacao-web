@@ -4,6 +4,7 @@ import styles from "./Cases.module.css";
 import clienteTextil from "@/assets/img/cliente-textil.webp";
 import clienteRedeAmazonica from "@/assets/img/cliente-rede-amazonica.webp";
 import clienteCbn from "@/assets/img/cliente-cbn.webp";
+import advEspecialista from "@/assets/img/adv-especialista.webp";
 
 type Case = {
   tag: string;
@@ -12,6 +13,8 @@ type Case = {
   outlet: string;
   image?: StaticImageData;
   instagramUrl?: string;
+  href?: string; // link para a matéria original
+  fullImage?: boolean; // exibe a imagem inteira (print), sem corte
 };
 
 const cases: Case[] = [
@@ -50,6 +53,15 @@ const cases: Case[] = [
     outlet: "Pautas do Dia — CBN Amazônia",
     image: clienteCbn,
   },
+  {
+    tag: "Direito previdenciário",
+    title: "Dra. Amanda Gabrielle Souza",
+    desc: "Advogada previdenciária, foi ouvida pelo portal Terra para explicar as mudanças na lei para concessão de benefícios do INSS — entre elas, a exigência do cadastro biométrico.",
+    outlet: "Portal Terra",
+    image: advEspecialista,
+    fullImage: true,
+    href: "https://www.terra.com.br/economia/financas-pessoais/advogada-explica-mudanca-na-lei-para-concessao-de-beneficios-do-inss,ac919a3eabb444b5d257b80d23b34248ilzwln0s.html",
+  },
 ];
 
 export default function Cases() {
@@ -66,7 +78,18 @@ export default function Cases() {
                   <InstagramEmbed url={item.instagramUrl} />
                 </div>
               ) : (
-                item.image && (
+                item.image &&
+                (item.fullImage ? (
+                  <div className={styles.mediaFull}>
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} — matéria em ${item.outlet}`}
+                      placeholder="blur"
+                      sizes="(max-width: 1024px) 100vw, 560px"
+                      style={{ width: "100%", height: "auto", display: "block" }}
+                    />
+                  </div>
+                ) : (
                   <div className={styles.media}>
                     <Image
                       src={item.image}
@@ -77,7 +100,7 @@ export default function Cases() {
                       style={{ objectFit: "cover" }}
                     />
                   </div>
-                )
+                ))
               )}
               <div className={styles.content}>
                 <span className={styles.tag}>{item.tag}</span>
@@ -86,6 +109,16 @@ export default function Cases() {
                 <p className={styles.outlet}>
                   <span>Veículo:</span> {item.outlet}
                 </p>
+                {item.href && (
+                  <a
+                    className={styles.link}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Ler matéria
+                  </a>
+                )}
               </div>
             </article>
           ))}

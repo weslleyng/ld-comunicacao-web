@@ -14,7 +14,7 @@ export default function Header() {
           aria-label="LD Comunicação — Assessoria de Imprensa"
         >
           <Image
-            src="/ld-horizontal.png"
+            src="/ld-horizontal-branco.png"
             width={151}
             height={34}
             alt="LD Comunicação — Assessoria de Imprensa"

@@ -27,7 +27,12 @@
   --surface: #ffffff; /* card / panel backgrounds (was raw var(--white)) */
   --section-accent: #1f3a5f; /* Press + Final CTA section background */
   --footer-bg: #16293f; /* footer background */
-  --glass: rgba(251, 249, 244, 0.94); /* sticky header / mobile CTA bar */
+  --glass: rgba(251, 249, 244, 0.94); /* mobile CTA bar */
+  --nav-glass-top: rgba(22, 41, 63, 0.92); /* nocturnal nav: glass gradient top */
+  --nav-glass-bottom: rgba(31, 58, 95, 0.84); /* nocturnal nav: glass gradient bottom */
+  --nav-glass-solid: #16293f; /* nav fallback when backdrop-filter is unsupported */
+  --nav-line: rgba(240, 190, 109, 0.28); /* thin gold hairline under the nav */
+  --nav-sheen: rgba(213, 227, 255, 0.08); /* inner top highlight (glass sheen) */
   --hero-tint: rgba(182, 138, 62, 0.07); /* warm glow behind the hero photo */
   --on-dark: #aec8f4; /* body text on the blue/dark sections */
   --on-dark-strong: #d5e3ff; /* headings / links on the dark sections */

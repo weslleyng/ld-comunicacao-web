@@ -1,8 +1,0 @@
-# Artefatos do design / desenvolvimento — não vão para produção
-LD Landing Page.html
-assets/image-slot.js
-uploads/
-.thumbnail
-*.state.json
-.image-slots.state.json
-DEPLOY.md
