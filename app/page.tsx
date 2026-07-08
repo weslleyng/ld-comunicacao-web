@@ -9,7 +9,6 @@ import Cases from "@/components/sections/Cases";
 import Faq from "@/components/sections/Faq";
 import Contact from "@/components/sections/Contact";
 import FinalCta from "@/components/sections/FinalCta";
-import Disclaimer from "@/components/sections/Disclaimer";
 import Reveal from "@/components/ui/Reveal";
 import { faqJsonLd } from "@/lib/faqs";
 
@@ -54,10 +53,7 @@ export default function Home() {
       </Reveal>
       <Reveal>
         <FinalCta />
-      </Reveal>
-      <Reveal>
-        <Disclaimer />
-      </Reveal>
+      </Reveal>      
     </>
   );
 }
