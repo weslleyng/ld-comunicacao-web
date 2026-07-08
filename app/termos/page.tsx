@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import LegalSection from "@/components/layout/LegalSection";
 import {
   EMAIL,
@@ -6,6 +6,7 @@ import {
   CNPJ,
   MUNICIPAL_REGISTRATION,
   FULL_ADDRESS_LINE,
+  PHONE_DISPLAY,
 } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -33,7 +34,7 @@ export default function TermosPage() {
         <li><strong>Inscrição Municipal:</strong> {MUNICIPAL_REGISTRATION}</li>
         <li><strong>Endereço:</strong> {FULL_ADDRESS_LINE}</li>
         <li><strong>E-mail:</strong> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-        <li><strong>WhatsApp/telefone:</strong> +55 92 98448-0378</li>
+        <li><strong>WhatsApp/telefone:</strong> {PHONE_DISPLAY}</li>
       </ul>
       <p>Ao longo deste documento, podemos nos referir a essa empresa como “LD Comunicação”, “nós” ou “site”. Quem acessa o site é tratado como “você” ou “usuário”.</p>
 
@@ -115,7 +116,7 @@ export default function TermosPage() {
       <p>Em caso de dúvidas sobre estes Termos de Uso, fale com a LD Comunicação:</p>
       <ul>
         <li><strong>E-mail:</strong> <a href={`mailto:${EMAIL}`}>{EMAIL}</a></li>
-        <li><strong>WhatsApp/telefone:</strong> +55 92 98448-0378</li>
+        <li><strong>WhatsApp/telefone:</strong> {PHONE_DISPLAY}</li>
         <li><strong>Endereço:</strong> {FULL_ADDRESS_LINE}</li>
       </ul>
 

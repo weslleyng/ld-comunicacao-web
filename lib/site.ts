@@ -12,6 +12,8 @@ export const SITE_DESCRIPTION =
 
 export const PHONE_E164 = "+55-92-98448-0378";
 
+export const PHONE_DISPLAY = "+55 92 98448-0378";
+
 export const WHATSAPP_NUMBER = "5592984480378";
 
 const WHATSAPP_MESSAGE =
