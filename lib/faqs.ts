@@ -16,14 +16,14 @@ export const faqs: Faq[] = [
   },
   {
     q: "Em quanto tempo consigo aparecer na mídia?",
-    a: "Em média, as primeiras oportunidades de divulgação surgem nos primeiros sete dias após o envio dos conteúdos para a imprensa. O prazo pode variar de acordo com a relevância da pauta, a agenda dos veículos e o interesse editorial dos jornalistas. Como a decisão final de publicação é da imprensa, não é possível garantir uma data específica para a veiculação.",
+    a: "Em média, as primeiras oportunidades de divulgação surgem nos primeiros dias após o envio dos conteúdos para a imprensa. O prazo pode variar de acordo com a relevância da pauta, a agenda dos veículos e o interesse editorial dos jornalistas. Como a decisão final de publicação é da imprensa, não é possível garantir uma data específica para a veiculação.",
   },
   {
     q: "A assessoria funciona para a minha área?",
     a: "A assessoria de imprensa é indicada para profissionais especializados, empresários e executivos que desejam fortalecer sua autoridade e ampliar sua visibilidade por meio da imprensa. O trabalho é especialmente eficaz para quem possui experiência, conhecimento técnico e capacidade de contribuir com informações relevantes para o público e para os jornalistas. Atendemos profissionais e empresas de diversos segmentos, como médicos, dentistas, advogados, engenheiros, arquitetos, psicólogos, consultores, especialistas em recursos humanos, profissionais de segurança do trabalho, corretores de imóveis, imobiliárias, construtoras, empresários, executivos, indústrias, clínicas, escritórios e empresas de diferentes áreas. Se você possui conhecimento, experiência ou uma história relevante para compartilhar, há potencial para construir pautas de interesse para a imprensa e fortalecer sua autoridade no mercado.",
   },
   {
-    q: "Preciso ter muitos seguidores para sair na mídia?",
+    q: "Preciso ter muitos seguidores nas redes sociais para sair na mídia?",
     a: "Não. A imprensa busca especialistas, histórias e informações relevantes para o público. O número de seguidores pode fortalecer a presença digital, mas não é determinante para conquistar espaço em veículos de comunicação.",
   },
   {
@@ -52,7 +52,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "O que preciso fazer para começar?",
-    a: "Basta entrar em contato para agendar uma conversa inicial. Vamos entender seus objetivos, identificar oportunidades de posicionamento e apresentar uma estratégia personalizada para fortalecer sua autoridade e presença na imprensa.",
+    a: "Basta entrar em contato para agendar uma entrevista. Vamos entender seus objetivos, identificar oportunidades de posicionamento e apresentar uma estratégia personalizada para fortalecer sua autoridade e presença na imprensa.",
   },
 ];
 

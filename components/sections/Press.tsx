@@ -37,7 +37,7 @@ export default function Press() {
             </li>
           ))}
         </ul>
-        <p className={styles.label}>E também em importantes veículos locais:</p>
+        <p className={styles.label}>Também em importantes veículos locais:</p>
         <div className={styles.logos}>
           {outlets.map((outlet) => (
             <span key={outlet} className="cascade-item">

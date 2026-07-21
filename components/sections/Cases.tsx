@@ -4,7 +4,7 @@ import styles from "./Cases.module.css";
 import clienteTextil from "@/assets/img/cliente-textil.webp";
 import clienteRedeAmazonica from "@/assets/img/cliente-rede-amazonica.webp";
 import clienteCbn from "@/assets/img/cliente-cbn.webp";
-import advEspecialista from "@/assets/img/adv-especialista.webp";
+import advEspecialista from "@/assets/img/adv-especialista.jpeg";
 
 type Case = {
   tag: string;
@@ -28,7 +28,7 @@ const cases: Case[] = [
   {
     tag: "Cirurgia plástica",
     title: "Dr. Renan Gil",
-    desc: "Cirurgião plástico, concedeu entrevista à TV RIT, de São Paulo, sobre reconstrução mamária pós-câncer, destacando a segurança do procedimento.",
+    desc: "Cirurgião plástico concedeu entrevista à TV RIT, de São Paulo, sobre reconstrução mamária pós-câncer, destacando a segurança do procedimento.",
     outlet: "TV RIT, São Paulo",
     instagramUrl: "https://www.instagram.com/reel/DEmzX84xAb1/",
   },
@@ -56,7 +56,7 @@ const cases: Case[] = [
   {
     tag: "Direito previdenciário",
     title: "Dra. Amanda Gabrielle Souza",
-    desc: "Advogada previdenciária, foi ouvida pelo portal Terra para explicar as mudanças na lei para concessão de benefícios do INSS, entre elas, a exigência do cadastro biométrico.",
+    desc: "Advogada previdenciária foi ouvida pelo portal Terra para explicar as mudanças na lei para concessão de benefícios do INSS, entre elas, a exigência do cadastro biométrico.",
     outlet: "Portal Terra",
     image: advEspecialista,
     fullImage: true,
