@@ -3,7 +3,7 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import Parallax from "@/components/ui/Parallax";
 import HeroBackground from "./HeroBackground";
 import styles from "./Hero.module.css";
-import luanaPhoto from "@/assets/Luana-pic.jpeg";
+import luanaPhoto from "@/assets/profile.jpeg";
 
 export default function Hero() {
   return (

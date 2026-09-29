@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./About.module.css";
-import luanaPhoto from "@/assets/Luana-profile.jpeg";
+import luanaPhoto from "@/assets/ld-profile.jpeg";
 
 export default function About() {
   return (
